@@ -16,6 +16,7 @@ import unicodedata
 
 VERSION = "0.1.0"
 MAX_BYTES = 1024 * 1024
+MAX_JSON_NESTING = 32
 ID_PATTERN = r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,79}$"
 HASH_PATTERN = r"^[0-9a-f]{64}$"
 BASIS = "supplied_note_spans_only"
@@ -208,11 +209,40 @@ def floating(value):
     return parsed
 
 
+def check_json_nesting(value):
+    """Bound container depth before decoding, independent of Python recursion limits.
+
+    Brackets inside quoted strings are data. JSON syntax, including malformed
+    escapes and mismatched delimiters, remains the standard decoder's job.
+    """
+    depth = 0
+    quoted = False
+    escaped = False
+    for character in value:
+        if quoted:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == '"':
+                quoted = False
+        elif character == '"':
+            quoted = True
+        elif character in "[{":
+            depth += 1
+            if depth > MAX_JSON_NESTING:
+                raise InputError("JSON_TOO_DEEP")
+        elif character in "]}":
+            depth -= 1
+
+
 def parse_json(raw):
     if not isinstance(raw, bytes) or len(raw) > MAX_BYTES:
         raise InputError("INPUT_TOO_LARGE")
     try:
-        return json.loads(raw.decode("utf-8"), object_pairs_hook=pairs,
+        value = raw.decode("utf-8")
+        check_json_nesting(value)
+        return json.loads(value, object_pairs_hook=pairs,
                           parse_constant=constant, parse_int=integer, parse_float=floating)
     except (ValueError, UnicodeError, RecursionError):
         raise InputError("JSON_INVALID")
@@ -414,7 +444,8 @@ def main(argv=None):
         examples=Path(__file__).resolve().parent/"examples"
         if args.command=="schema":
             result={"ok":True,"command":"schema","version":VERSION,"schemas":INPUT_SCHEMA,
-                "max_input_bytes_per_file":MAX_BYTES,"review_finding_codes":list(FINDINGS),
+                "max_input_bytes_per_file":MAX_BYTES,"max_json_nesting":MAX_JSON_NESTING,
+                "review_finding_codes":list(FINDINGS),
                 "export_finding_codes":list(EXPORT_FINDINGS),"csv_columns":list(CSV_COLUMNS)}
         elif args.command=="onboard":
             result=onboard()

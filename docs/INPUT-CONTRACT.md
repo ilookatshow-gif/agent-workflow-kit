@@ -131,7 +131,10 @@ rejected count. All-rejected input may yield only headers with accepted0.
 
 ## Bounds and local output / Пределы и выход
 
-Each file is UTF-8 JSON, at most1MiB before parsing. Exact keys are required;
+Each file is UTF-8 JSON, at most1MiB before parsing. Container nesting is limited
+to32 levels, counting the outer object as level1. Braces and brackets inside
+quoted strings do not add levels. Deeper input is refused with JSON_TOO_DEEP
+before JSON parsing. Exact keys are required;
 extra/duplicate JSON keys, NaN/Infinity, booleans in integer fields, controls,
 surrogates and oversized collections/strings are refused. IDs follow
 [A-Za-z0-9][A-Za-z0-9_.:-]{0,79}; label<=160,text<=4000,title<=500,quote<=2000,
@@ -139,7 +142,10 @@ reason<=2000. Consult schema for the exact current field and span bounds.
 Invalid JSON/date/shape, mismatched meeting IDs or unknown decision IDs give
 exit2 without a new output. The error JSON does not dump the supplied payload.
 
-Файл ограничен1МиБ UTF-8 до разбора. Ключи заданы точно; лишние и повторяющиеся
+Файл ограничен1МиБ UTF-8 до разбора. Допустимо до32 уровней вложенности объектов
+и массивов; внешний объект считается уровнем1. Скобки внутри строк не добавляют
+уровней. Более глубокий вход отклоняется с JSON_TOO_DEEP до разбора JSON.
+Ключи заданы точно; лишние и повторяющиеся
 ключи, NaN/Infinity, логические значения вместо чисел, управляющие символы,
 суррогаты и превышение пределов отклоняются. Точные границы показывает schema.
 Ошибки формата, даты, ID встречи или решений дают код2 без нового результата.
