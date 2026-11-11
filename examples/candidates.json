@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "meeting_id": "DEMO-MEETING-01",
+  "source_sha256": "73a7ef18b409a3e2032220bec447224675ff5d9e6d35daaa453083d1d949edb8",
+  "actions": [
+    {
+      "id": "A01",
+      "owner_id": "ops",
+      "title": "Подготовить черновик плана",
+      "due_date": "2026-11-13",
+      "source_line_id": "L01",
+      "start": 0,
+      "end": 50,
+      "quote": "Я подготовлю черновик плана к 13 ноября 2026 года."
+    },
+    {
+      "id": "A02",
+      "owner_id": "finance",
+      "title": "Сверить две суммы в таблице",
+      "due_date": null,
+      "source_line_id": "L02",
+      "start": 0,
+      "end": 28,
+      "quote": "Я сверю две суммы в таблице."
+    },
+    {
+      "id": "A03",
+      "owner_id": "coordinator",
+      "title": "Отправить финальный файл",
+      "due_date": null,
+      "source_line_id": "L04",
+      "start": 0,
+      "end": 29,
+      "quote": "Финальный файл уже отправлен."
+    },
+    {
+      "id": "A04",
+      "owner_id": "ops",
+      "title": "Сверить суммы от имени другого участника",
+      "due_date": null,
+      "source_line_id": "L02",
+      "start": 0,
+      "end": 28,
+      "quote": "Я сверю две суммы в таблице."
+    },
+    {
+      "id": "A05",
+      "owner_id": "ops",
+      "title": "Считать пятницу согласованным обязательством",
+      "due_date": null,
+      "source_line_id": "L03",
+      "start": 0,
+      "end": 29,
+      "quote": "Можем обсудить это в пятницу?"
+    }
+  ]
+}

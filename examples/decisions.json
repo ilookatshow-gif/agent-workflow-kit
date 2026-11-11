@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "meeting_id": "DEMO-MEETING-01",
+  "source_sha256": "73a7ef18b409a3e2032220bec447224675ff5d9e6d35daaa453083d1d949edb8",
+  "candidates_sha256": "137c090111a473fdf497f75fd93fc2654be19d0e223feb407003ea8847ff971d",
+  "reviewer_id": "reviewer-demo",
+  "reviewed_on": "2026-11-11",
+  "decisions": [
+    {
+      "action_id": "A01",
+      "decision": "accept",
+      "reason": "Учебная проверка: явное личное обязательство и указанная дата."
+    },
+    {
+      "action_id": "A02",
+      "decision": "accept",
+      "reason": "Личное обязательство; срок не согласован и оставлен пустым."
+    },
+    {
+      "action_id": "A03",
+      "decision": "reject",
+      "reason": "Цитата выдумана и не совпадает с исходной строкой."
+    },
+    {
+      "action_id": "A04",
+      "decision": "reject",
+      "reason": "Задача приписана не тому участнику, который произнёс цитату."
+    },
+    {
+      "action_id": "A05",
+      "decision": "reject",
+      "reason": "Точная цитата содержит вопрос-предложение, а не принятое обязательство."
+    }
+  ]
+}

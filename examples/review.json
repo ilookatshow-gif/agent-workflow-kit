@@ -1,0 +1,95 @@
+{
+  "candidates_sha256": "137c090111a473fdf497f75fd93fc2654be19d0e223feb407003ea8847ff971d",
+  "command": "review",
+  "evidence_basis": "supplied_note_spans_only",
+  "meeting_id": "DEMO-MEETING-01",
+  "ok": true,
+  "rows": [
+    {
+      "action_id": "A01",
+      "classification": "consistent",
+      "due_date": "2026-11-13",
+      "end": 50,
+      "findings": [],
+      "owner_id": "ops",
+      "owner_label": "\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 (\u0432\u044b\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u044b\u0439)",
+      "quote": "\u042f \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u044e \u0447\u0435\u0440\u043d\u043e\u0432\u0438\u043a \u043f\u043b\u0430\u043d\u0430 \u043a 13 \u043d\u043e\u044f\u0431\u0440\u044f 2026 \u0433\u043e\u0434\u0430.",
+      "source_line_id": "L01",
+      "source_speaker_id": "ops",
+      "source_text": "\u042f \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u044e \u0447\u0435\u0440\u043d\u043e\u0432\u0438\u043a \u043f\u043b\u0430\u043d\u0430 \u043a 13 \u043d\u043e\u044f\u0431\u0440\u044f 2026 \u0433\u043e\u0434\u0430.",
+      "start": 0,
+      "title": "\u041f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u0438\u0442\u044c \u0447\u0435\u0440\u043d\u043e\u0432\u0438\u043a \u043f\u043b\u0430\u043d\u0430"
+    },
+    {
+      "action_id": "A02",
+      "classification": "consistent",
+      "due_date": null,
+      "end": 28,
+      "findings": [],
+      "owner_id": "finance",
+      "owner_label": "\u0424\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u044b\u0439 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 (\u0432\u044b\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u044b\u0439)",
+      "quote": "\u042f \u0441\u0432\u0435\u0440\u044e \u0434\u0432\u0435 \u0441\u0443\u043c\u043c\u044b \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0435.",
+      "source_line_id": "L02",
+      "source_speaker_id": "finance",
+      "source_text": "\u042f \u0441\u0432\u0435\u0440\u044e \u0434\u0432\u0435 \u0441\u0443\u043c\u043c\u044b \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0435.",
+      "start": 0,
+      "title": "\u0421\u0432\u0435\u0440\u0438\u0442\u044c \u0434\u0432\u0435 \u0441\u0443\u043c\u043c\u044b \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0435"
+    },
+    {
+      "action_id": "A03",
+      "classification": "needs_review",
+      "due_date": null,
+      "end": 29,
+      "findings": [
+        "QUOTE_MISMATCH"
+      ],
+      "owner_id": "coordinator",
+      "owner_label": "\u041a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u043e\u0440 (\u0432\u044b\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u044b\u0439)",
+      "quote": "\u0424\u0438\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0444\u0430\u0439\u043b \u0443\u0436\u0435 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d.",
+      "source_line_id": "L04",
+      "source_speaker_id": "coordinator",
+      "source_text": "\u041d\u0438\u043a\u043e\u043c\u0443 \u043f\u043e\u043a\u0430 \u043d\u0435 \u043f\u043e\u0440\u0443\u0447\u0430\u043b\u0438 \u043e\u0442\u043f\u0440\u0430\u0432\u043a\u0443 \u0444\u0438\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0444\u0430\u0439\u043b\u0430.",
+      "start": 0,
+      "title": "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0444\u0438\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0444\u0430\u0439\u043b"
+    },
+    {
+      "action_id": "A04",
+      "classification": "needs_review",
+      "due_date": null,
+      "end": 28,
+      "findings": [
+        "OWNER_SPEAKER_MISMATCH"
+      ],
+      "owner_id": "ops",
+      "owner_label": "\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 (\u0432\u044b\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u044b\u0439)",
+      "quote": "\u042f \u0441\u0432\u0435\u0440\u044e \u0434\u0432\u0435 \u0441\u0443\u043c\u043c\u044b \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0435.",
+      "source_line_id": "L02",
+      "source_speaker_id": "finance",
+      "source_text": "\u042f \u0441\u0432\u0435\u0440\u044e \u0434\u0432\u0435 \u0441\u0443\u043c\u043c\u044b \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0435.",
+      "start": 0,
+      "title": "\u0421\u0432\u0435\u0440\u0438\u0442\u044c \u0441\u0443\u043c\u043c\u044b \u043e\u0442 \u0438\u043c\u0435\u043d\u0438 \u0434\u0440\u0443\u0433\u043e\u0433\u043e \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430"
+    },
+    {
+      "action_id": "A05",
+      "classification": "consistent",
+      "due_date": null,
+      "end": 29,
+      "findings": [],
+      "owner_id": "ops",
+      "owner_label": "\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 (\u0432\u044b\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u044b\u0439)",
+      "quote": "\u041c\u043e\u0436\u0435\u043c \u043e\u0431\u0441\u0443\u0434\u0438\u0442\u044c \u044d\u0442\u043e \u0432 \u043f\u044f\u0442\u043d\u0438\u0446\u0443?",
+      "source_line_id": "L03",
+      "source_speaker_id": "ops",
+      "source_text": "\u041c\u043e\u0436\u0435\u043c \u043e\u0431\u0441\u0443\u0434\u0438\u0442\u044c \u044d\u0442\u043e \u0432 \u043f\u044f\u0442\u043d\u0438\u0446\u0443?",
+      "start": 0,
+      "title": "\u0421\u0447\u0438\u0442\u0430\u0442\u044c \u043f\u044f\u0442\u043d\u0438\u0446\u0443 \u0441\u043e\u0433\u043b\u0430\u0441\u043e\u0432\u0430\u043d\u043d\u044b\u043c \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e\u043c"
+    }
+  ],
+  "source_sha256": "73a7ef18b409a3e2032220bec447224675ff5d9e6d35daaa453083d1d949edb8",
+  "summary": {
+    "actions": 5,
+    "consistent": 3,
+    "needs_review": 2
+  },
+  "version": "0.1.0"
+}
