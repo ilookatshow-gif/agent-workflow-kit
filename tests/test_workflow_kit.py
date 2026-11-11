@@ -189,6 +189,27 @@ class ValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(kit.InputError,"INPUT_TOO_LARGE"):
             kit.parse_json(b' '* (kit.MAX_BYTES+1))
 
+    def test_json_nesting_boundary_counts_arrays_and_objects(self):
+        self.assertEqual(kit.MAX_JSON_NESTING,32)
+        for opening,closing in [(b'[',b']'),(b'{"x":',b'}')]:
+            at_limit=opening*32+b'0'+closing*32
+            self.assertEqual(kit.parse_json(at_limit),json.loads(at_limit))
+            with self.assertRaisesRegex(kit.InputError,"JSON_TOO_DEEP"):
+                kit.parse_json(opening*33+b'0'+closing*33)
+
+    def test_json_nesting_ignores_escaped_quotes_and_brackets_inside_strings(self):
+        value='quote: " slash: '+('\\'*3)+' ['*64+' }'*64+' end "'
+        supplied={'bracket["key':value}
+        self.assertEqual(kit.parse_json(raw(supplied)),supplied)
+
+    def test_escaped_backslashes_do_not_hide_following_nested_containers(self):
+        for label in ['\\','\\\\','\\"','quote"\\']:
+            prefix=b'{"label":'+json.dumps(label).encode('ascii')+b',"data":'
+            at_limit=prefix+b'['*31+b'0'+b']'*31+b'}'
+            self.assertEqual(kit.parse_json(at_limit),json.loads(at_limit))
+            with self.assertRaisesRegex(kit.InputError,"JSON_TOO_DEEP"):
+                kit.parse_json(prefix+b'['*32+b'0'+b']'*32+b'}')
+
     def test_nonfinite_and_oversized_integer_tokens_refused(self):
         for data in [b'NaN',b'Infinity',b'-Infinity',b'1e999']:
             with self.assertRaisesRegex(kit.InputError,"NONFINITE_JSON"):
